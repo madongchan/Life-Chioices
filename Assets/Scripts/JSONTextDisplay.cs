@@ -15,7 +15,7 @@ public class JSONTextDisplay : MonoBehaviour
         textDataManager = FindObjectOfType<TextDataManager>();
 
         // 카드 선택 후에 텍스트를 출력
-        StartCoroutine(DisplayNextText("intro"));
+        //StartCoroutine(DisplayNextText("intro"));
         GameManager.GetInstance().cardManager.ShowCardSelection(2, "남성으로 태어나시겠습니까?", "여성으로 태어나시겠습니까?");
     }
 
