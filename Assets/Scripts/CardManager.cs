@@ -30,7 +30,6 @@ public class CardManager : MonoBehaviour
         {
             Vector3 cardPosition = startPosition + new Vector3(i * (cardWidth + spacing), 0, 0);
             GameObject card = Instantiate(cardPrefab, cardSpawnPoint.position + cardPosition, Quaternion.identity);
-            card.GetComponent<Card>().SetDialogue(cardTexts[i]);
             currentCards.Add(card); // 현재 카드 목록에 추가
         }
     }

@@ -108,53 +108,53 @@ public class CardInputSystem : MonoBehaviour
             //Debug.Log("카드를 놓음.");
             if (IsCardInUsageColliderLayer())
             {
-                // 만약 GetComponent<Card>().cardText가 "체력을 올린다", "지식을 올린다", "행복을 올린다", "명성을 올린다", "재력을 올린다" 이 문구 중 하나일 때, 
-                if (GetComponent<Card>().cardText == "체력을 올린다" || GetComponent<Card>().cardText == "지식을 올린다" || GetComponent<Card>().cardText == "행복을 올린다" || GetComponent<Card>().cardText == "명성을 올린다" || GetComponent<Card>().cardText == "재력을 올린다")
-                {
-                    if (GetComponent<Card>().cardText == "체력을 올린다")
-                    {
-                        GameManager.GetInstance().characterStateManager.SetSliderValue(0, GameManager.GetInstance().characterStateManager.GetSliderValue(0) + 0.1f);
-                    }
-                    else if (GetComponent<Card>().cardText == "지식을 올린다")
-                    {
-                        GameManager.GetInstance().characterStateManager.SetSliderValue(1, GameManager.GetInstance().characterStateManager.GetSliderValue(1) + 0.1f);
-                    }
-                    else if (GetComponent<Card>().cardText == "행복을 올린다")
-                    {
-                        GameManager.GetInstance().characterStateManager.SetSliderValue(2, GameManager.GetInstance().characterStateManager.GetSliderValue(2) + 0.1f);
-                    }
-                    else if (GetComponent<Card>().cardText == "명성을 올린다")
-                    {
-                        GameManager.GetInstance().characterStateManager.SetSliderValue(3, GameManager.GetInstance().characterStateManager.GetSliderValue(3) + 0.1f);
-                    }
-                    else if (GetComponent<Card>().cardText == "재력을 올린다")
-                    {
-                        GameManager.GetInstance().characterStateManager.SetSliderValue(4, GameManager.GetInstance().characterStateManager.GetSliderValue(4) + 0.1f);
-                    }
-                    GameManager.GetInstance().num--;
-                    if (GameManager.GetInstance().num <= 0)
-                    {
-                        StartCoroutine(GameManager.GetInstance().jsonTextDisplay.DisplayNextText("이제 세상에 태어나게 됩니다.\n인생은 선택의 연속이니 앞으로의 선택도 신중히 해주세요."));
-                    }
-                    else
-                    {
-                        StartCoroutine(GameManager.GetInstance().jsonTextDisplay.DisplayNextText($"기회가 {GameManager.GetInstance().num}번 남았습니다."));
-                    }
-                }
-                else
-                {
-                    StartCoroutine(GameManager.GetInstance().jsonTextDisplay.DisplayNextText($"{GameManager.GetInstance().textDataManager.GetText(GetComponent<Card>().cardText)} 태어나기 전 스탯을 올릴 기회가 {GameManager.GetInstance().num}번 있습니다.\n신중하게 선택하시길 바랍니다."));
-                }
-                Card[] allCards = FindObjectsOfType<Card>();
-                foreach (Card card in allCards)
-                {
-                    if (card != null)
-                    {
-                        Destroy(card.gameObject);
-                    }
-                }
-                // 체력, 지식, 행복, 명성, 재력을 올려준다는 문구 추가
-                GameManager.GetInstance().cardManager.ShowCardSelection(5, "체력을 올린다", "지식을 올린다", "행복을 올린다", "명성을 올린다", "재력을 올린다");
+                // // 만약 GetComponent<Card>().cardText가 "체력을 올린다", "지식을 올린다", "행복을 올린다", "명성을 올린다", "재력을 올린다" 이 문구 중 하나일 때, 
+                // if (GetComponent<Card>().cardText == "체력을 올린다" || GetComponent<Card>().cardText == "지식을 올린다" || GetComponent<Card>().cardText == "행복을 올린다" || GetComponent<Card>().cardText == "명성을 올린다" || GetComponent<Card>().cardText == "재력을 올린다")
+                // {
+                //     if (GetComponent<Card>().cardText == "체력을 올린다")
+                //     {
+                //         GameManager.GetInstance().characterStateManager.SetSliderValue(0, GameManager.GetInstance().characterStateManager.GetSliderValue(0) + 0.1f);
+                //     }
+                //     else if (GetComponent<Card>().cardText == "지식을 올린다")
+                //     {
+                //         GameManager.GetInstance().characterStateManager.SetSliderValue(1, GameManager.GetInstance().characterStateManager.GetSliderValue(1) + 0.1f);
+                //     }
+                //     else if (GetComponent<Card>().cardText == "행복을 올린다")
+                //     {
+                //         GameManager.GetInstance().characterStateManager.SetSliderValue(2, GameManager.GetInstance().characterStateManager.GetSliderValue(2) + 0.1f);
+                //     }
+                //     else if (GetComponent<Card>().cardText == "명성을 올린다")
+                //     {
+                //         GameManager.GetInstance().characterStateManager.SetSliderValue(3, GameManager.GetInstance().characterStateManager.GetSliderValue(3) + 0.1f);
+                //     }
+                //     else if (GetComponent<Card>().cardText == "재력을 올린다")
+                //     {
+                //         GameManager.GetInstance().characterStateManager.SetSliderValue(4, GameManager.GetInstance().characterStateManager.GetSliderValue(4) + 0.1f);
+                //     }
+                //     GameManager.GetInstance().num--;
+                //     if (GameManager.GetInstance().num <= 0)
+                //     {
+                //         StartCoroutine(GameManager.GetInstance().jsonTextDisplay.DisplayNextText("이제 세상에 태어나게 됩니다.\n인생은 선택의 연속이니 앞으로의 선택도 신중히 해주세요."));
+                //     }
+                //     else
+                //     {
+                //         StartCoroutine(GameManager.GetInstance().jsonTextDisplay.DisplayNextText($"기회가 {GameManager.GetInstance().num}번 남았습니다."));
+                //     }
+                // }
+                // else
+                // {
+                //     StartCoroutine(GameManager.GetInstance().jsonTextDisplay.DisplayNextText($"{GameManager.GetInstance().textDataManager.GetText(GetComponent<Card>().cardText)} 태어나기 전 스탯을 올릴 기회가 {GameManager.GetInstance().num}번 있습니다.\n신중하게 선택하시길 바랍니다."));
+                // }
+                // Card[] allCards = FindObjectsOfType<Card>();
+                // foreach (Card card in allCards)
+                // {
+                //     if (card != null)
+                //     {
+                //         Destroy(card.gameObject);
+                //     }
+                // }
+                // // 체력, 지식, 행복, 명성, 재력을 올려준다는 문구 추가
+                // GameManager.GetInstance().cardManager.ShowCardSelection(5, "체력을 올린다", "지식을 올린다", "행복을 올린다", "명성을 올린다", "재력을 올린다");
             }
             else
             {

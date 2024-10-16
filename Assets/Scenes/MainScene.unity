@@ -153,11 +153,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: caa9d2d2ad11fc54894ab1ef17a265c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  num: 5
-  cardManager: {fileID: 1034450031}
-  textDataManager: {fileID: 48070373}
-  characterStateManager: {fileID: 0}
-  jsonTextDisplay: {fileID: 2011774259}
 --- !u!114 &48070373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -839,7 +834,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1034450032}
-  - component: {fileID: 1034450031}
   m_Layer: 0
   m_Name: CardManager
   m_TagString: Untagged
@@ -847,24 +841,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1034450031
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1034450030}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c59cf90f7c6c52c44b00c74a12d46a46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cardPrefab: {fileID: 7338177093126095573, guid: 4d6e781d8c6ca8142a80381cc631484f, type: 3}
-  cardSpawnPoint: {fileID: 284413118}
-  cardWidth: 1
-  minSpacing: 0.1
-  maxSpacing: 1.5
-  maxTotalWidth: 8
 --- !u!4 &1034450032
 Transform:
   m_ObjectHideFlags: 0
@@ -1472,7 +1448,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0.114379205
+  m_MatchWidthOrHeight: 0.11565562
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -1570,7 +1546,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2011774258}
-  - component: {fileID: 2011774259}
   m_Layer: 0
   m_Name: TextManager
   m_TagString: Untagged
@@ -1593,20 +1568,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2011774259
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2011774256}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33518c305a8179c41b8a0f6dffff2858, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tmpText: {fileID: 2123899667}
-  delay: 0.1
 --- !u!1 &2123899666
 GameObject:
   m_ObjectHideFlags: 0
