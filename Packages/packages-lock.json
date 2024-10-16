@@ -1,12 +1,5 @@
 {
   "dependencies": {
-    "com.gilzoide.sqlite-net": {
-      "version": "https://github.com/gilzoide/unity-sqlite-net.git#1.0.1",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "9645bb6ae3bbbdf8db2af88922623e822897e376"
-    },
     "com.unity.2d.animation": {
       "version": "9.1.0",
       "depth": 1,
@@ -243,7 +236,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.textmeshpro": {
-      "version": "3.0.9",
+      "version": "3.0.6",
       "depth": 0,
       "source": "registry",
       "dependencies": {

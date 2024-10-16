@@ -1,4 +1,3 @@
-using Febucci.UI.Core;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -12,7 +11,6 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        TAnimBuilder.InitializeGlobalDatabase();
         if (Instance != null)
         {
             Destroy(gameObject);
