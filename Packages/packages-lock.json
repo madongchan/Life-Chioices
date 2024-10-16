@@ -1,5 +1,21 @@
 {
   "dependencies": {
+    "com.gilzoide.sqlite-asset": {
+      "version": "https://github.com/gilzoide/unity-sqlite-asset.git#1.0.0-preview2",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.gilzoide.sqlite-net": "1.0.0-preview6"
+      },
+      "hash": "ab370dbaf60a6557598029df7fc1582e2ab4b736"
+    },
+    "com.gilzoide.sqlite-net": {
+      "version": "https://github.com/gilzoide/unity-sqlite-net.git#1.0.1",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "9645bb6ae3bbbdf8db2af88922623e822897e376"
+    },
     "com.unity.2d.animation": {
       "version": "9.1.0",
       "depth": 1,
@@ -236,7 +252,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.textmeshpro": {
-      "version": "3.0.6",
+      "version": "3.0.9",
       "depth": 0,
       "source": "registry",
       "dependencies": {
