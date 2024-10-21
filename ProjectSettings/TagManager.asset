@@ -48,3 +48,6 @@ TagManager:
   - name: Card
     uniqueID: 1986523833
     locked: 0
+  - name: FadePanel
+    uniqueID: 437278111
+    locked: 0

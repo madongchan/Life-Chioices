@@ -32,6 +32,11 @@ public class LoadSceneWindow : EditorWindow {
         if (GUILayout.Button("MainScene", GUILayout.Height(30))) {
             OpenScene("Assets/Scenes/MainScene.unity");
         }
+        // 로딩 화면으로 이동하는 버튼
+        GUILayout.Label("로딩 화면", EditorStyles.boldLabel);
+        if (GUILayout.Button("LoadingScene", GUILayout.Height(30))) {
+            OpenScene("Assets/Scenes/LoadingScene.unity");
+        }
         // streamingAssetsPath : 읽기 전용 데이터가 저장되는 폴더
         GUILayout.Label("읽기 전용 데이터가 저장되는 폴더", EditorStyles.boldLabel);
         if (GUILayout.Button("streamingAssetsPath Folder", GUILayout.Height(40))) {
