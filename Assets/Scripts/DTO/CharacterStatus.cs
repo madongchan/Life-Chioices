@@ -11,7 +11,7 @@ public class CharacterStatus
     // 행복
     public int Happiness { get; set; }
     // 명성
-    public int Honor { get; set; }
+    public int Charm { get; set; }
     // 재력
     public int Money { get; set; }
 }
