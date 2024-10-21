@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour {
         return Instance;
     }
 
+    public CharacterStateSliderManager characterStateManager;
+
     private void Start()
     {
         
