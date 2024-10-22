@@ -19,8 +19,11 @@ public class GameManager : MonoBehaviour {
 
     public CharacterStateSliderManager characterStateManager;
 
-    private void Start()
-    {
-        
+    private void Start() {
+        // StoryDAO.GetCardList() Log
+        var cardList = StoryDAO.GetStoryCardList(1);
+        foreach (var card in cardList) {
+            Debug.Log(card);
+        }
     }
 }

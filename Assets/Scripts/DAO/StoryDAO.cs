@@ -8,4 +8,7 @@ public class StoryDAO : BaseDAO<Story> {
         var story = StoryDAO.GetItem(Index);
         return story;
     }
+    public static List<int> GetStoryCardList(int Index) {
+        return GetStory(Index).Cards.ToIntList();
+    }
 }
