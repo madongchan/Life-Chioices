@@ -42,12 +42,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: UI
-    uniqueID: 1014478553
-    locked: 0
   - name: Card
     uniqueID: 1986523833
     locked: 0
+  - name: UI
+    uniqueID: 1014478553
+    locked: 0
   - name: FadePanel
     uniqueID: 437278111
+    locked: 0
+  - name: TopLayer
+    uniqueID: 3967492287
     locked: 0

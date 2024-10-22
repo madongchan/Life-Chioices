@@ -590,6 +590,7 @@ GameObject:
   - component: {fileID: 732197289}
   - component: {fileID: 732197288}
   - component: {fileID: 732197287}
+  - component: {fileID: 732197291}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -674,7 +675,7 @@ MonoBehaviour:
       defaults:
         sizeDuration: 0.4
         sizeAmplitude: 1.5
-        fadeDuration: 0.3
+        fadeDuration: 0.2
         verticalExpandDuration: 0.3
         verticalFromBottom: 0
         horizontalExpandDuration: 0.3
@@ -759,8 +760,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uB2F9\uC2E0\uC758 \uC778\uC0DD, \uB2F9\uC2E0\uC758 \uC120\uD0DD. \uC774\uC81C
-    \uADF8 \uCCAB \uAC78\uC74C\uC744 \uB0B4\uB51B\uC5B4 \uBCF4\uC138\uC694."
+  m_text: "<fade>\uB2F9\uC2E0\uC758 \uC778\uC0DD, \uB2F9\uC2E0\uC758 \uC120\uD0DD.
+    \uC774\uC81C \uADF8 \uCCAB \uAC78\uC74C\uC744 \uB0B4\uB51B\uC5B4 \uBCF4\uC138\uC694.</fade>"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 11a48b74c03da9343851f37020d38c03, type: 2}
   m_sharedMaterial: {fileID: -6673674807969322414, guid: 11a48b74c03da9343851f37020d38c03, type: 2}
@@ -787,7 +788,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 32.45
+  m_fontSize: 24.6
   m_fontSizeBase: 34.61
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -837,6 +838,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 732197285}
   m_CullTransparentMesh: 1
+--- !u!114 &732197291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 732197285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87735b801bf3a3945ac8de5a95943360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textAnimatorPlayer: {fileID: 732197287}
+  textMeshPro: {fileID: 732197289}
+  repeatDelay: 2
 --- !u!1 &814289850
 GameObject:
   m_ObjectHideFlags: 0

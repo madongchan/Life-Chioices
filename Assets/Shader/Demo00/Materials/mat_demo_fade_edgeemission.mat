@@ -9,14 +9,16 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: mat_demo_fade_edgeemission
   m_Shader: {fileID: 4800000, guid: 1bc5c6a70411243779ce486a98012125, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - _ALPHA_TRANSITION_MAP_MODE_2D
   - _BASE_MAP_MODE_2D
-  - _EMISSION_AREA_ALPHA
-  - _EMISSION_COLOR_MAP
+  - _DISSOLVE_TRANSITION_ENABLED
+  - _EMISSION_AREA_ALL
+  - _EMISSION_COLOR_BASECOLOR
   - _EMISSION_MAP_MODE_2D
-  - _FADE_TRANSITION_ENABLED
-  - _PARALLAX_MAP_MODE_2D
+  - _PARALLAX_MAP_MODE_2D_ARRAY
   - _SHADOW_CASTER_ALPHA_TEST_ENABLED
   - _TINT_AREA_ALL
   - _TINT_COLOR_ENABLED
@@ -28,6 +30,7 @@ Material:
   stringTagMap:
     RenderType: Transparent
   disabledShaderPasses: []
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -175,9 +178,9 @@ Material:
     - _AlphaTransitionMapSecondTextureProgressCoord: 0
     - _AlphaTransitionMapSecondTextureSliceCount: 4
     - _AlphaTransitionMapSliceCount: 4
-    - _AlphaTransitionMode: 1
+    - _AlphaTransitionMode: 2
     - _AlphaTransitionProgress: 0
-    - _AlphaTransitionProgressCoord: 1
+    - _AlphaTransitionProgressCoord: 0
     - _AlphaTransitionProgressCoordSecondTexture: 0
     - _AlphaTransitionProgressSecondTexture: 0
     - _AlphaTransitionSecondTextureBlendMode: 0
@@ -206,12 +209,12 @@ Material:
     - _DepthFadeWidth: 1
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
-    - _DissolveSharpness: 0.913
+    - _DissolveSharpness: 0.718
     - _DissolveSharpnessSecondTexture: 0.5
     - _DstBlend: 0
-    - _EmissionAreaType: 3
-    - _EmissionColorType: 2
-    - _EmissionIntensity: 2.91
+    - _EmissionAreaType: 1
+    - _EmissionColorType: 1
+    - _EmissionIntensity: 2.96
     - _EmissionIntensityCoord: 0
     - _EmissionMapChannelsX: 0
     - _EmissionMapMode: 0
@@ -244,7 +247,7 @@ Material:
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _ParallaxMapChannel: 0
-    - _ParallaxMapMode: 0
+    - _ParallaxMapMode: 1
     - _ParallaxMapOffsetXCoord: 0
     - _ParallaxMapOffsetYCoord: 0
     - _ParallaxMapProgress: 0
