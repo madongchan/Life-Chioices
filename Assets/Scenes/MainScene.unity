@@ -152,7 +152,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: caa9d2d2ad11fc54894ab1ef17a265c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterStateManager: {fileID: 0}
+  Canvas_chaptgerNight: {fileID: 2140574542}
+  characterStateManager: {fileID: 1640077084}
+  cardManager: {fileID: 1034450033}
+  textManager: {fileID: 2123899672}
 --- !u!4 &48070374
 Transform:
   m_ObjectHideFlags: 0
@@ -403,8 +406,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 15.683346, y: 5.717274, z: 1}
-  m_Center: {x: 0.19932175, y: 1.1627085, z: 0}
+  m_Size: {x: 7.411042, y: 3.5338783, z: 1}
+  m_Center: {x: -0.0005675554, y: 0.96282005, z: 0}
 --- !u!1 &419340269
 GameObject:
   m_ObjectHideFlags: 0
@@ -1646,66 +1649,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc62f8b6144d46b4884eae99d95b6f96, type: 3}
---- !u!1001 &1686327269
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2438655426674226494, guid: 2d295f83d72d1c5468a487f1a3c24f76, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2438655426674226494, guid: 2d295f83d72d1c5468a487f1a3c24f76, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2438655426674226494, guid: 2d295f83d72d1c5468a487f1a3c24f76, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2438655426674226494, guid: 2d295f83d72d1c5468a487f1a3c24f76, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2438655426674226494, guid: 2d295f83d72d1c5468a487f1a3c24f76, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2438655426674226494, guid: 2d295f83d72d1c5468a487f1a3c24f76, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2438655426674226494, guid: 2d295f83d72d1c5468a487f1a3c24f76, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2438655426674226494, guid: 2d295f83d72d1c5468a487f1a3c24f76, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2438655426674226494, guid: 2d295f83d72d1c5468a487f1a3c24f76, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2438655426674226494, guid: 2d295f83d72d1c5468a487f1a3c24f76, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7338177093126095573, guid: 2d295f83d72d1c5468a487f1a3c24f76, type: 3}
-      propertyPath: m_Name
-      value: CardObject
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2253620777174066268, guid: 2d295f83d72d1c5468a487f1a3c24f76, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-  m_SourcePrefab: {fileID: 100100000, guid: 2d295f83d72d1c5468a487f1a3c24f76, type: 3}
 --- !u!1 &1696718836
 GameObject:
   m_ObjectHideFlags: 0
@@ -2196,6 +2139,7 @@ GameObject:
   - component: {fileID: 2123899667}
   - component: {fileID: 2123899671}
   - component: {fileID: 2123899670}
+  - component: {fileID: 2123899672}
   m_Layer: 5
   m_Name: StoryText
   m_TagString: Untagged
@@ -2368,7 +2312,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8ace8ced0e81c847968cdca0aeda757, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerAnimPlayerOnChange: 0
+  triggerAnimPlayerOnChange: 1
   effectIntensityMultiplier: 50
   appearancesContainer:
     tags:
@@ -2442,6 +2386,20 @@ MonoBehaviour:
     lineCount: 0
     pageCount: 0
     materialCount: 0
+--- !u!114 &2123899672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2123899666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c05f988ef9b73c43b09bc34c109e08b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  storyText: {fileID: 2123899666}
+  textAnimatorPlayer: {fileID: 2123899670}
 --- !u!1 &2125110236
 GameObject:
   m_ObjectHideFlags: 0
@@ -2537,7 +2495,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2140574543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2788,5 +2746,4 @@ SceneRoots:
   - {fileID: 284413118}
   - {fileID: 1034450032}
   - {fileID: 48070374}
-  - {fileID: 1686327269}
   - {fileID: 572693835}

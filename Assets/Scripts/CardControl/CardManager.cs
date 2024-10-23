@@ -13,15 +13,10 @@ public class CardManager : MonoBehaviour
     private List<GameObject> currentCards = new List<GameObject>();
 
     // 카드 개수와 텍스트를 업데이트하는 메서드
-    public void ShowCardSelection(int cardCount, params string[] cardTexts)
+    public void ShowCardSelection(int NextStoryIndex)
     {
         ClearCards(); // 기존 카드 제거
-        if (cardTexts.Length != cardCount)
-        {
-            Debug.LogError("카드 개수와 텍스트 배열의 크기가 일치하지 않습니다.");
-            return;
-        }
-
+        int cardCount = StoryDAO.GetStoryCardList(NextStoryIndex).Count;
         float totalWidth = CalculateTotalWidth(cardCount);
         float spacing = CalculateSpacing(cardCount, totalWidth);
         Vector3 startPosition = CalculateStartPosition(cardCount, totalWidth, spacing);
@@ -30,7 +25,16 @@ public class CardManager : MonoBehaviour
         {
             Vector3 cardPosition = startPosition + new Vector3(i * (cardWidth + spacing), 0, 0);
             GameObject card = Instantiate(cardPrefab, cardSpawnPoint.position + cardPosition, Quaternion.identity);
-            currentCards.Add(card); // 현재 카드 목록에 추가
+            // 현재 카드 목록에 추가
+            currentCards.Add(card);
+            // 카드 데이터 설정
+            Card cardData = CardDAO.GetCard(StoryDAO.GetStoryCardList(NextStoryIndex)[i]);
+            CardInputSystem cardInputSystem = card.GetComponent<CardInputSystem>();
+            // 카드 데이터 설정
+            cardInputSystem.cardData = cardData;
+            // 카드 텍스트 설정
+            cardInputSystem.cardDescription.text = cardData.Description;
+            GameManager.GetInstance().textManager.ShowText(NextStoryIndex);
         }
     }
 

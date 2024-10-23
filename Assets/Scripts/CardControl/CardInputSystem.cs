@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -10,11 +11,13 @@ public class CardInputSystem : MonoBehaviour {
         IN_HAND,      // 손패에 있는 상태
         IN_HAND_HOLD  // 손에 들고 있는 상태
     }
-
+    public Card cardData; // 카드 데이터
     public Material dissolveMaterial; // 카드가 사라지는 효과를 위한 Material
+    public GameObject cardIMG = null;
+    public TextMeshPro cardDescription = null;
+
     private Vector3 originalMousePos;
     private ENUM_CARD_INPUT_STATE state;
-    [SerializeField] public SpriteRenderer card = null;
 
     private void Start() {
         SetCardState(ENUM_CARD_INPUT_STATE.IN_HAND);
@@ -50,6 +53,8 @@ public class CardInputSystem : MonoBehaviour {
     private void OnMouseEnter() {
         if (EventSystem.current.IsPointerOverGameObject()) return;
         if (state == ENUM_CARD_INPUT_STATE.IN_HAND) {
+            // cardIMG를 DoTween을 이용해 1.5배 확대
+            cardIMG.transform.DOScale(1.1f, 0.1f).SetEase(Ease.OutBack);
             //Debug.Log("카드 위에 마우스가 들어옴.");
         }
     }
@@ -57,6 +62,7 @@ public class CardInputSystem : MonoBehaviour {
     private void OnMouseExit() {
         if (EventSystem.current.IsPointerOverGameObject()) return;
         if (state == ENUM_CARD_INPUT_STATE.IN_HAND) {
+            cardIMG.transform.DOScale(1f, 0.1f).SetEase(Ease.InBack);
             //Debug.Log("카드 위에서 마우스가 나감.");
         }
     }
@@ -66,6 +72,7 @@ public class CardInputSystem : MonoBehaviour {
 
         originalMousePos = transform.position;
         //Debug.Log("카드 클릭됨.");
+        cardIMG.transform.DOScale(1f, 0);
         SetCardState(ENUM_CARD_INPUT_STATE.IN_HAND_HOLD);
     }
 
@@ -75,11 +82,11 @@ public class CardInputSystem : MonoBehaviour {
             transform.position = GetMousePosition();
 
             if (IsCardInUsageColliderLayer()) {
-                // 밝은 노란색으로 변경 (카드 사용 가능한 상태)
-                card.color = new Color(card.color.r, card.color.g, card.color.b, 0.2f);
+                // (카드 사용 가능한 상태)
+                cardIMG.SetActive(false);
             }
             else {
-                card.color = new Color(card.color.r, card.color.g, card.color.b, 1f);
+                cardIMG.SetActive(true);;
             }
             // 드래그가 감지되면 상태를 유지
             //Debug.Log("카드가 드래그됨.");
@@ -91,9 +98,12 @@ public class CardInputSystem : MonoBehaviour {
             //Debug.Log("카드를 놓음.");
             if (IsCardInUsageColliderLayer()) {
                 // 0에서 1로 페이드 아웃 (디졸브)
-                dissolveMaterial.DOFloat(1f, "_AlphaTransitionProgress", 1).OnComplete(() => {
+                // cardDescription 비활성화
+                cardDescription.gameObject.SetActive(false);
+                dissolveMaterial.DOFloat(0.6f, "_AlphaTransitionProgress", 1.5f).OnComplete(() => {
                     // 1에서 0으로 다시 복구 (다시 나타남)
                     dissolveMaterial.DOFloat(0f, "_AlphaTransitionProgress", 0);
+                    GameManager.GetInstance().cardManager.ShowCardSelection(cardData.NextIndex);
                     //var stateManager = GameManager.GetInstance().characterStateManager;
                     //stateManager.SetSliderValue(0, stateManager.GetSliderValue(0) + 0.1f);
                 });

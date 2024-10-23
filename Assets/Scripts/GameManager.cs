@@ -16,14 +16,13 @@ public class GameManager : MonoBehaviour {
     public static GameManager GetInstance() {
         return Instance;
     }
-
+    public GameObject Canvas_chaptgerNight;
     public CharacterStateSliderManager characterStateManager;
+    public CardManager cardManager;
+    public StoryText textManager;
 
     private void Start() {
-        // StoryDAO.GetCardList() Log
-        var cardList = StoryDAO.GetStoryCardList(1);
-        foreach (var card in cardList) {
-            Debug.Log(card);
-        }
+        Canvas_chaptgerNight.SetActive(true);
+        cardManager.ShowCardSelection(1);
     }
 }

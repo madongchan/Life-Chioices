@@ -180,10 +180,10 @@ Material:
     - _AlphaTransitionMapSliceCount: 4
     - _AlphaTransitionMode: 2
     - _AlphaTransitionProgress: 0
-    - _AlphaTransitionProgressCoord: 1
+    - _AlphaTransitionProgressCoord: 0
     - _AlphaTransitionProgressCoordSecondTexture: 0
     - _AlphaTransitionProgressSecondTexture: 0
-    - _AlphaTransitionSecondTextureBlendMode: 1
+    - _AlphaTransitionSecondTextureBlendMode: 0
     - _BaseMapMirrorSampling: 0
     - _BaseMapMode: 0
     - _BaseMapOffsetXCoord: 0
@@ -209,7 +209,7 @@ Material:
     - _DepthFadeWidth: 1
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
-    - _DissolveSharpness: 0.913
+    - _DissolveSharpness: 0.911
     - _DissolveSharpnessSecondTexture: 0.5
     - _DstBlend: 0
     - _EmissionAreaType: 3
