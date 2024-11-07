@@ -52,5 +52,18 @@ public class LoadSceneWindow : EditorWindow {
         if (GUILayout.Button("GameDB", GUILayout.Height(40))) {
             Application.OpenURL("file:///" + Application.persistentDataPath + "/DB/GameDB.db");
         }
+        // db의 CharacterStatus를 초기화하는 버튼
+        GUILayout.Label("CharacterStatus 초기화", EditorStyles.boldLabel);
+        if (GUILayout.Button("CharacterStatus 초기화", GUILayout.Height(40))) {
+            CharacterStatus characterStatus = CharacterStatusDAO.GetCharacterStatus();
+            // 요소들을 50으로 초기호 후 업데이트
+            characterStatus.HP = 50;
+            characterStatus.Charm = 50;
+            characterStatus.Happiness = 50;
+            characterStatus.Intelligence = 50;
+            characterStatus.Money = 50;
+            CharacterStatusDAO.UpdateCharacterStatus(characterStatus);
+        }
+        GameManager.GetInstance().characterStateSlideManager.Initialize();
     }
 }

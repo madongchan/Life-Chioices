@@ -3,6 +3,7 @@ using UnityEngine;
 using DG.Tweening;
 using Febucci.UI;
 using System.Linq;
+using System;
 
 public class NightChapterDissolveEffect : MonoBehaviour {
     public GameObject storyChapterBox;        // 머티리얼을 적용할 게임 오브젝트
@@ -21,11 +22,10 @@ public class NightChapterDissolveEffect : MonoBehaviour {
             SpriteRenderer renderer = storyChapterBox.GetComponent<SpriteRenderer>();
             dissolveMaterial = renderer.material;
             spriteRenderer = NightBG.GetComponent<SpriteRenderer>();
-            StartDissolveEffect();
         }
     }
 
-    void StartDissolveEffect() {
+    public void StartDissolveEffect(Action action = null) {
         // 밤 배경 초기화
         spriteRenderer.DOFade(1f, 0).OnComplete(() => {
             NightBG.SetActive(true);
@@ -43,8 +43,9 @@ public class NightChapterDissolveEffect : MonoBehaviour {
                 dissolveMaterial.SetFloat("_AlphaTransitionProgress", 0f);
                 if (spriteRenderer != null) {
                     // DOTween을 사용한 페이드 아웃 효과
-                    spriteRenderer.DOFade(0f, fadeDuration).SetEase(Ease.InOutSine).OnComplete(() => {
+                    spriteRenderer.DOFade(0f, fadeDuration).OnComplete(() => {
                         NightBG.SetActive(false);
+                        action?.Invoke(); // Action 실행
                     });
                 }
             });
@@ -57,5 +58,9 @@ public class NightChapterDissolveEffect : MonoBehaviour {
                 textObject.SetActive(activate);  // 텍스트 오브젝트의 활성화 여부 설정
             }
         }
+    }
+
+    internal void StartDissolveEffect(object v) {
+        throw new NotImplementedException();
     }
 }

@@ -153,7 +153,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Canvas_chaptgerNight: {fileID: 2140574542}
-  characterStateManager: {fileID: 1640077084}
+  characterStateSlideManager: {fileID: 1640077084}
+  characterStateManager: {fileID: 419340271}
   cardManager: {fileID: 1034450033}
   textManager: {fileID: 2123899672}
 --- !u!4 &48070374
@@ -349,7 +350,7 @@ Transform:
   m_GameObject: {fileID: 284413117}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -3.06, z: 0}
+  m_LocalPosition: {x: 0, y: -6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -930,6 +931,67 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &921237181
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2438655426674226494, guid: 2d295f83d72d1c5468a487f1a3c24f76, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2438655426674226494, guid: 2d295f83d72d1c5468a487f1a3c24f76, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 2438655426674226494, guid: 2d295f83d72d1c5468a487f1a3c24f76, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2438655426674226494, guid: 2d295f83d72d1c5468a487f1a3c24f76, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2438655426674226494, guid: 2d295f83d72d1c5468a487f1a3c24f76, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2438655426674226494, guid: 2d295f83d72d1c5468a487f1a3c24f76, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2438655426674226494, guid: 2d295f83d72d1c5468a487f1a3c24f76, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2438655426674226494, guid: 2d295f83d72d1c5468a487f1a3c24f76, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2438655426674226494, guid: 2d295f83d72d1c5468a487f1a3c24f76, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2438655426674226494, guid: 2d295f83d72d1c5468a487f1a3c24f76, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7338177093126095573, guid: 2d295f83d72d1c5468a487f1a3c24f76, type: 3}
+      propertyPath: m_Name
+      value: CardObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 7338177093126095573, guid: 2d295f83d72d1c5468a487f1a3c24f76, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2d295f83d72d1c5468a487f1a3c24f76, type: 3}
 --- !u!1001 &981265680
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1507,7 +1569,8 @@ MonoBehaviour:
   defaultColor:
     serializedVersion: 2
     rgba: 4282228479
-  highlightColor: {r: 0, g: 1, b: 0, a: 1}
+  increaseColor: {r: 0, g: 1, b: 0, a: 1}
+  decreaseColor: {r: 1, g: 0, b: 0, a: 1}
   highlightDuration: 1
 --- !u!114 &1640077085
 MonoBehaviour:
@@ -2747,3 +2810,4 @@ SceneRoots:
   - {fileID: 1034450032}
   - {fileID: 48070374}
   - {fileID: 572693835}
+  - {fileID: 921237181}

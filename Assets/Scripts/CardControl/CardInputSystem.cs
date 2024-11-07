@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
@@ -15,12 +16,20 @@ public class CardInputSystem : MonoBehaviour {
     public Material dissolveMaterial; // 카드가 사라지는 효과를 위한 Material
     public GameObject cardIMG = null;
     public TextMeshPro cardDescription = null;
+    // 앞면 스프라이트 이미지
+    public Sprite frontSprite;
 
     private Vector3 originalMousePos;
     private ENUM_CARD_INPUT_STATE state;
 
     private void Start() {
         SetCardState(ENUM_CARD_INPUT_STATE.IN_HAND);
+    }
+
+    public void ShowFrontImage() {
+        cardIMG.GetComponent<SpriteRenderer>().sprite = frontSprite;
+        // cardIMG의 레이어 순서를 1로 설정
+        cardIMG.GetComponent<SpriteRenderer>().sortingOrder = 1;
     }
 
     private void SetCardState(ENUM_CARD_INPUT_STATE newState) {
@@ -76,22 +85,34 @@ public class CardInputSystem : MonoBehaviour {
         SetCardState(ENUM_CARD_INPUT_STATE.IN_HAND_HOLD);
     }
 
+    private bool isCardInUsage = false; // 카드 사용 상태를 추적하는 변수
+
     private void OnMouseDrag() {
         if (state == ENUM_CARD_INPUT_STATE.IN_HAND_HOLD) {
             // 카드 위치 업데이트
             transform.position = GetMousePosition();
 
-            if (IsCardInUsageColliderLayer()) {
-                // (카드 사용 가능한 상태)
+            bool currentCardInUsage = IsCardInUsageColliderLayer(); // 현재 카드가 사용 가능 영역에 있는지 확인
+
+            if (currentCardInUsage && !isCardInUsage) {
+                // 카드가 사용 가능한 상태로 들어갔을 때 한 번 실행
+                isCardInUsage = true;
                 cardIMG.SetActive(false);
+                GameManager.GetInstance().characterStateSlideManager.PreSetSliderValue(cardData.HP, cardData.Intelligence, cardData.Happiness, cardData.Charm, cardData.Money, true);
             }
-            else {
-                cardIMG.SetActive(true);;
+            else if (!currentCardInUsage && isCardInUsage) {
+                // 카드가 사용 가능한 상태에서 벗어났을 때 한 번 실행
+                isCardInUsage = false;
+                cardIMG.SetActive(true);
+                GameManager.GetInstance().characterStateSlideManager.PreSetSliderValue(cardData.HP, cardData.Intelligence, cardData.Happiness, cardData.Charm, cardData.Money, false);
+                GameManager.GetInstance().particlesManager.StopParticle();
             }
+
             // 드래그가 감지되면 상태를 유지
-            //Debug.Log("카드가 드래그됨.");
+            // Debug.Log("카드가 드래그됨.");
         }
     }
+
 
     private void OnMouseUp() {
         if (state == ENUM_CARD_INPUT_STATE.IN_HAND_HOLD) {
@@ -100,12 +121,14 @@ public class CardInputSystem : MonoBehaviour {
                 // 0에서 1로 페이드 아웃 (디졸브)
                 // cardDescription 비활성화
                 cardDescription.gameObject.SetActive(false);
-                dissolveMaterial.DOFloat(0.6f, "_AlphaTransitionProgress", 1.5f).OnComplete(() => {
+                dissolveMaterial.DOFloat(0.6f, "_AlphaTransitionProgress", 1.2f).OnComplete(() => {
                     // 1에서 0으로 다시 복구 (다시 나타남)
                     dissolveMaterial.DOFloat(0f, "_AlphaTransitionProgress", 0);
-                    GameManager.GetInstance().cardManager.ShowCardSelection(cardData.NextIndex);
-                    //var stateManager = GameManager.GetInstance().characterStateManager;
-                    //stateManager.SetSliderValue(0, stateManager.GetSliderValue(0) + 0.1f);
+                    CharacterStatusDAO.UpdateCharacterStatus(cardData.HP, cardData.Intelligence, cardData.Happiness, cardData.Charm, cardData.Money);
+                    GameManager.GetInstance().particlesManager.StopParticle();
+                    GameManager.GetInstance().characterStateSlideManager.ResetSliderColor();
+                    var action = GameManager.GetInstance().cardManager.ShowCardSelection(cardData.NextIndex);
+                    action();
                 });
             }
             else {

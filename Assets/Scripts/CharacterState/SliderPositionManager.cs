@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [ExecuteAlways]  // 에디터 환경에서도 실행되도록 설정
-public class SliderManager : MonoBehaviour
+public class SliderPsitionManager : MonoBehaviour
 {
     [SerializeField] private Slider[] sliders;  // 에디터에서 할당할 Slider 배열
     [SerializeField] private float spacing = 100f;  // 슬라이더 간의 X축 간격
