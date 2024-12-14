@@ -14,10 +14,6 @@ public class LoadSceneWindow : EditorWindow {
         GetWindow(typeof(LoadSceneWindow));
     }
 
-    void OnEnable() {
-
-    }
-
     void OpenScene(string scenePath) {
         if (EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo()) {
             EditorSceneManager.OpenScene(scenePath);
@@ -50,7 +46,7 @@ public class LoadSceneWindow : EditorWindow {
         // 게임 데이터베이스 파일을 열 수 있는 버튼
         GUILayout.Label("게임 데이터베이스 파일", EditorStyles.boldLabel);
         if (GUILayout.Button("GameDB", GUILayout.Height(40))) {
-            Application.OpenURL("file:///" + Application.persistentDataPath + "/DB/GameDB.db");
+            Application.OpenURL("file:///" + Application.streamingAssetsPath + "/GameDB.db");
         }
         // db의 CharacterStatus를 초기화하는 버튼
         GUILayout.Label("CharacterStatus 초기화", EditorStyles.boldLabel);
@@ -64,6 +60,5 @@ public class LoadSceneWindow : EditorWindow {
             characterStatus.Money = 50;
             CharacterStatusDAO.UpdateCharacterStatus(characterStatus);
         }
-        GameManager.GetInstance().characterStateSlideManager.Initialize();
     }
 }

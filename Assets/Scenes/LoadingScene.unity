@@ -851,8 +851,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textAnimatorPlayer: {fileID: 732197287}
-  textMeshPro: {fileID: 732197289}
-  repeatDelay: 2
 --- !u!1 &814289850
 GameObject:
   m_ObjectHideFlags: 0
